@@ -31,5 +31,6 @@ public class ArrayUtil {
         //arr[5] = 21;  // This line will throw ArrayIndexOutOfBoundException
         int[] arr2 = {3, 4, 6, 7,85,32};
         printArr(arr2);
+        printArr(new int[] {4,5,76,34,56,2,5});
     }
 }
