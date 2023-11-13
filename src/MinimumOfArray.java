@@ -3,6 +3,8 @@ public class MinimumOfArray {
     public static void main(String[] args) {
         int[] arr = {4, 5, 15, 25, 36, 48, 5, 6, 1, -20};
         MinimumOfArray.findMinimume(arr);
+        MinimumOfArray.findMinimume(null);
+
     }
 
     private static void findMinimume(int[] arr) {
