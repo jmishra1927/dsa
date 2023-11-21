@@ -2,8 +2,8 @@ public class ResizeArray {
     public static void main(String[] args) {
         int arr[] = {2, 4, 8, 56, 15};
         System.out.println(arr.length);
-        int[] newArr = resizeArr(arr, arr.length * 2);
-        System.out.println(newArr.length);
+        arr = resizeArr(arr, arr.length * 2);
+        System.out.println(arr.length);
     }
 
     private static int[] resizeArr(int[] arr, int newSize) {
