@@ -19,6 +19,7 @@ public class SinglyLinkedList {
         System.out.println("null");
     }
 
+    //Find number of element in the linked list
     public int length(){
         if(head == null){
             return 0;
@@ -39,6 +40,20 @@ public class SinglyLinkedList {
         head = newNode;
     }
 
+    //Add new element at the end of SinglyLinkedList
+    public void insertLast(int value){
+        ListNode newNode = new ListNode(value);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        ListNode current = head;
+        while (null != current.next){
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.head = new ListNode(10);
@@ -57,6 +72,9 @@ public class SinglyLinkedList {
         sll.insertFirstNode(15);
         sll.display();
         System.out.println("Size after inserting new node a beginning is: "+sll.length());
+        sll.insertLast(23);
+        sll.display();
+        System.out.println("Size after inserting new node a end is: "+sll.length());
 
     }
 }
