@@ -72,6 +72,17 @@ public class SinglyLinkedList {
             node.next = current;  //1 --> 2 --> 7 --> 3 --> 4 --> null
         }
     }
+    
+    //This wii delete a node from beginning 
+    public ListNode deleteFirst(){
+        if(head == null){
+            return null;
+        }
+        ListNode first = head;
+        head = head.next;
+        first.next = null;
+        return first;
+    }
 
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -95,15 +106,20 @@ public class SinglyLinkedList {
         sll.display();
         System.out.println("Size after inserting new node a end is: "+sll.length());
         System.out.println("======================");
-        SinglyLinkedList ssl2 = new SinglyLinkedList();
-        ssl2.insert(1, 5);
-        ssl2.display();
-        ssl2.insert(1, 8);
-        ssl2.display();
-        ssl2.insert(3, 9);
-        ssl2.display();
-        ssl2.insert(2, 7);
-        ssl2.display();
+        SinglyLinkedList sll2 = new SinglyLinkedList();
+        sll2.insert(1, 5);
+        sll2.display();
+        sll2.insert(1, 8);
+        sll2.display();
+        sll2.insert(3, 9);
+        sll2.display();
+        sll2.insert(2, 7);
+        sll2.display();
+        System.out.println("=========================");
+        sll.display();
+        System.out.println("Deleted first node's data is: "+sll.deleteFirst().data);
+        System.out.println("Deleted first node's data is 2nd time: "+sll.deleteFirst().data);
+        sll.display();
 
     }
 }
