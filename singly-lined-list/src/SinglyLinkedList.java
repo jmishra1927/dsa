@@ -73,7 +73,7 @@ public class SinglyLinkedList {
         }
     }
     
-    //This wii delete a node from beginning 
+    //This will delete a node from beginning
     public ListNode deleteFirst(){
         if(head == null){
             return null;
@@ -82,6 +82,21 @@ public class SinglyLinkedList {
         head = head.next;
         first.next = null;
         return first;
+    }
+
+    //This will delete a node from the last position of SinglyLinkedList
+    public ListNode deleteFromLast(){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode current = head;
+        ListNode previous = null;
+        while(current.next != null){
+            previous = current;
+            current = current.next;
+        }
+        previous.next = null;
+        return current;
     }
 
     public static void main(String[] args) {
@@ -118,7 +133,14 @@ public class SinglyLinkedList {
         System.out.println("=========================");
         sll.display();
         System.out.println("Deleted first node's data is: "+sll.deleteFirst().data);
-        System.out.println("Deleted first node's data is 2nd time: "+sll.deleteFirst().data);
+        System.out.println("Deleted first node's data 2nd time is: "+sll.deleteFirst().data);
+        sll.display();
+        System.out.println("==========Delete from last===============");
+        sll.insertLast(26);
+        sll.insertLast(14);
+        sll.insertLast(78);
+        sll.display();
+        System.out.println("Deleted last node's data is: "+sll.deleteFromLast().data);
         sll.display();
 
     }
