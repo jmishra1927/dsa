@@ -99,6 +99,25 @@ public class SinglyLinkedList {
         return current;
     }
 
+    //This will delete node from a given position
+    public ListNode delete(int position){
+        if(position == 1){
+            ListNode current = head;
+            head = head.next; //Previous head will be garbage collected because there is no reference to that
+            return current;
+        }else{
+            ListNode previous = head;
+            int count = 1;
+            while(count < position -1 ){
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+            return current;
+        }
+    }
+
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.head = new ListNode(10);
@@ -120,7 +139,7 @@ public class SinglyLinkedList {
         sll.insertLast(23);
         sll.display();
         System.out.println("Size after inserting new node a end is: "+sll.length());
-        System.out.println("======================");
+        System.out.println("===========Insert at specific position===========");
         SinglyLinkedList sll2 = new SinglyLinkedList();
         sll2.insert(1, 5);
         sll2.display();
@@ -130,7 +149,7 @@ public class SinglyLinkedList {
         sll2.display();
         sll2.insert(2, 7);
         sll2.display();
-        System.out.println("=========================");
+        System.out.println("===========Delete First==============");
         sll.display();
         System.out.println("Deleted first node's data is: "+sll.deleteFirst().data);
         System.out.println("Deleted first node's data 2nd time is: "+sll.deleteFirst().data);
@@ -142,6 +161,10 @@ public class SinglyLinkedList {
         sll.display();
         System.out.println("Deleted last node's data is: "+sll.deleteFromLast().data);
         sll.display();
-
+        System.out.println("==========Delete from given position===============");
+        System.out.println("Deleted first node's data is: "+sll.delete(1).data);
+        sll.display();
+        System.out.println("Deleted fourth node's data is: "+sll.delete(4).data);
+        sll.display();
     }
 }
