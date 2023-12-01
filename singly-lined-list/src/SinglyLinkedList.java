@@ -118,6 +118,21 @@ public class SinglyLinkedList {
         }
     }
 
+    //This method will search for an element in SinglyLinkedList
+    public boolean find(ListNode head, int searchKey){
+        if(head == null){
+            return false;
+        }
+        ListNode current = head;
+        while(current != null){
+            if(current.data == searchKey){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.head = new ListNode(10);
@@ -166,5 +181,18 @@ public class SinglyLinkedList {
         sll.display();
         System.out.println("Deleted fourth node's data is: "+sll.delete(4).data);
         sll.display();
+        System.out.println("=============Search for Key=================");
+        int searchKey = 11;
+        if(sll.find(sll.head, searchKey)){
+            System.out.println(searchKey+" is present in list");
+        }else{
+            System.out.println(searchKey+" is not present in list");
+        }
+        searchKey = 100;
+        if(sll.find(sll.head, searchKey)){
+            System.out.println(searchKey+" is present in list");
+        }else{
+            System.out.println(searchKey+" is not present in list");
+        }
     }
 }
